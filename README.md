@@ -18,7 +18,7 @@ ranges we construct. To compute efficiently and convinently, we choose base 2.
 Note: 
 - It only supports `int` value. If you need `float` value, consider converting it
 into integer.
-- You could rewrite the program using your favorite language without little effort.
+- You could rewrite the program using your favorite language with little effort.
 
 ## API (Header Only; C++11)
 ```cpp
