@@ -15,8 +15,10 @@ ranges we construct. To compute efficiently and convinently, we choose base 2.
 
 ![](visualize.svg)
 
-Note: It only supports `int` value. If you need `float` value, consider converting it
+Note: 
+- It only supports `int` value. If you need `float` value, consider converting it
 into integer.
+- You could rewrite the program using your favorite language without little effort.
 
 ## API (Header Only; C++11)
 ```cpp
