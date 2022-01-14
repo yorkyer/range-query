@@ -1,4 +1,4 @@
-# RangeQuery
+# Range Query
 To query the sum of a range.
 
 The idea is to recursively divide the range into smaller ranges, and 
