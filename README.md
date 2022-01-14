@@ -28,11 +28,17 @@ public:
      * @E the number of sub-blocks is 2^E.
      */
     RangeQuery(int N, int E, std::function<ValueType(int)> func);
+
     /**
      * @return if successfully update.
      */ 
     bool update(int x, ValueType diff);
-    ValueType query(int l, int r) const; // Not including r
+
+    /**
+     * @l the left of the queried range (included)
+     * @r the right of the queired range (excluded)
+     */ 
+    ValueType query(int l, int r) const;
 }
 ```
 
@@ -43,13 +49,17 @@ std::unordered_map<int, double> values{
         {27, 24.4},
         {100, 1.1}
 };
+
+// Construct a RangeQuery object.
 RangeQuery<double> rangeQuery(10, 3, [&](int x) -> double {
     if (values.find(x) != values.end()) return values[x];
     return 0;
 });
 
-for (auto [x, value] : values) {
-    rangeQuery.update(x, value);
+
+// Need to update RangeQuery with the existed value.
+for (auto it = values.begin(); it != values.end(); it++) {
+    rangeQuery.update(it->first, it->second);
 }
 
 rangeQuery.update(800, 800.1);
