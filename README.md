@@ -1,8 +1,22 @@
 # RangeQuery
-To query the sum of a range. It only supports `int` value.
-The idea is to recursively divide the range into smaller ranges.
+To query the sum of a range.
+
+The idea is to recursively divide the range into smaller ranges, and the
+we store the sum of these ranges. When update/insert/cancel a value, we
+need to update its corresponding range in each layer exactly once. When query
+a range, we select the possible biggert precomuted range to sum. In this way,
+in each layer, we only need no more than constant operations. At last, we don't
+store the single value to save memory. 
+Instead, when we need to get a value of single element,
+we use a callback that uses sets.
+
+The below graph shows that when all value are between 0 and 2^10, the hierarchy of
+ranges we construct. To compute efficiently and convinently, we choose base 2.
 
 ![](visualize.svg)
+
+Note: It only supports `int` value. If you need `float` value, consider converting it
+into integer.
 
 ## API
 ```cpp
