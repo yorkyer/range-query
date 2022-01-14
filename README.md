@@ -18,7 +18,7 @@ ranges we construct. To compute efficiently and convinently, we choose base 2.
 Note: It only supports `int` value. If you need `float` value, consider converting it
 into integer.
 
-## API
+## API (Header Only)
 ```cpp
 template <typename ValueType>
 class RangeQuery {

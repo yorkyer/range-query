@@ -13,8 +13,8 @@ int main() {
         return 0;
     });
 
-    for (auto [x, value] : values) {
-        rangeQuery.update(x, value);
+    for (auto it = values.begin(); it != values.end(); it++) {
+        rangeQuery.update(it->first, it->second);
     }
 
     rangeQuery.update(800, 800.1);
