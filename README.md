@@ -1,10 +1,10 @@
 # RangeQuery
 To query the sum of a range.
 
-The idea is to recursively divide the range into smaller ranges, and the
+The idea is to recursively divide the range into smaller ranges, and 
 we store the sum of these ranges. When update/insert/cancel a value, we
 need to update its corresponding range in each layer exactly once. When query
-a range, we select the possible biggert precomuted range to sum. In this way,
+a range, we select the possible biggest precomuted range to sum. In this way,
 in each layer, we only need no more than constant operations. At last, we don't
 store the single value to save memory. 
 Instead, when we need to get a value of single element,
