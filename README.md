@@ -1,5 +1,8 @@
 # RangeQuery
 To query the sum of a range. It only supports `int` value.
+The idea is to recursively divide the range into smaller ranges.
+
+![](visualize.svg)
 
 ## API
 ```cpp
